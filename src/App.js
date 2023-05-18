@@ -11,7 +11,6 @@ import {
   Paper
 } from "@mui/material";
 
-
 const url = "https://dummyjson.com/users";
 
 function App() {
