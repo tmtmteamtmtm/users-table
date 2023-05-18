@@ -25,6 +25,7 @@ function App() {
         <table>
           <thead>
             <tr>
+              <th>ID</th>
               <th>First Name</th>
               <th>Last Name</th>
               <th>Ages</th>
@@ -32,7 +33,8 @@ function App() {
           </thead>
           <tbody>
             {data.users.map((val) => (
-              <tr key={val.id}>
+              <tr key={val.users}>
+                <td>{val.id}</td>
                 <td>{val.firstName}</td>
                 <td>{val.lastName}</td>
                 <td>{val.age}</td>
