@@ -1,5 +1,14 @@
+import { useState, useEffect } from "react";
 import "./App.css";
-import React, { useEffect, useState } from "react";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper
+} from "@mui/material";
 import axios from "axios";
 
 const url = "https://dummyjson.com/users";
@@ -17,32 +26,36 @@ function App() {
     return <h1>Loading...</h1>;
   }
 
-  console.log(data);
+
 
   return (
     <div className="App">
-      {data.users.map((val) => (
-        <table>
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>First Name</th>
-              <th>Last Name</th>
-              <th>Ages</th>
-            </tr>
-          </thead>
-          <tbody>
+      <h1 align="center">Users</h1>
+      <h4 align="center">Period Table</h4>
+      <TableContainer component={Paper}>
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableCell>ID</TableCell>
+              <TableCell>First Name</TableCell>
+              <TableCell>Last Name</TableCell>
+              <TableCell>Age</TableCell>
+              <TableCell>Period</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
             {data.users.map((val) => (
-              <tr key={val.users}>
-                <td>{val.id}</td>
-                <td>{val.firstName}</td>
-                <td>{val.lastName}</td>
-                <td>{val.age}</td>
-              </tr>
+              <TableRow key={val.id}>
+                <TableCell>{val.id}</TableCell>
+                <TableCell>{val.firstName}</TableCell>
+                <TableCell>{val.lastName}</TableCell>
+                <TableCell>{val.age}</TableCell>
+                <TableCell>///</TableCell>
+              </TableRow>
             ))}
-          </tbody>
-        </table>
-      ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
     </div>
   );
 }
